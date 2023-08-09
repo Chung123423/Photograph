@@ -12,6 +12,7 @@ class Photo extends Model
 
     protected $table = 'photos';
     public $primaryKey = 'id';
+    protected $keyType = 'string';
     
     protected $fillable = [
         'id',

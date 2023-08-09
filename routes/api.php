@@ -18,9 +18,14 @@ use App\Http\Controllers\Api\AlbumController;
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout', [AuthController::class, 'logout']);
-    
+
+    //photo controller
     Route::get('/photo', [PhotoController::class, 'get']);
     Route::post('/upload', [PhotoController::class, 'upload']);
+    Route::post('/delete', [PhotoController::class, 'delete']);
+
+    //album controller
+    Route::post('/list_albums', [AlbumController::class, 'list_albums']);
     Route::post('/create_album', [AlbumController::class, 'create_album']);
     Route::post('/add_photo_to_album', [AlbumController::class, 'add_photo_to_album']);
     Route::post('/get_photos_from_album', [AlbumController::class, 'get_photos_from_album']);
@@ -33,5 +38,4 @@ Route::post('/signin', [AuthController::class, 'signin']);
 Route::post('/signup', [AuthController::class, 'signup']);
 
 
-//Route::post('/photos', [PhotoController::class, 'all']);
 

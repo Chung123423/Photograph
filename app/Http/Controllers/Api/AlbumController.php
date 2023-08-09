@@ -68,4 +68,12 @@ class AlbumController extends Controller
 
         return response()->json(['status' => true], 200);
     }
+
+    public function list_albums(Request $request){
+        $user = $request->user();
+
+        $albums = Album::where('user_id',$user->id)->get();
+
+        return response()->json($albums, 200);
+    }
 }

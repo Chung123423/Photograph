@@ -71,6 +71,18 @@ class PhotoController extends Controller
     }
 
     public function delete(Request $request){
+        try{
+            $photo_id = $request->input("photo_id");
+            $user = $request->user();
 
+            $photo = Photo::find($photo_id)->first();
+            $filename = $photo->id . '.' . $photo->ext;
+            Storage::delete('photos/'.$filename);
+            $photo->delete();
+
+            return response()->json(['status' =>  true], 200);
+        }catch(Exception $ex){
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
     }
 }
