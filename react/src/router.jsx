@@ -4,6 +4,7 @@ import GuestLayout from './components/GuestLayout.jsx';
 import Login from './views/Login.jsx';
 import Home from './views/Home.jsx';
 import NotFound from "./views/NotFound.jsx";
+import Dashboard from "./views/Dashboard.jsx";
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/home',
                 element: <Home />
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard />
             }
         ]
     },

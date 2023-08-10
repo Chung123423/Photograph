@@ -67,9 +67,7 @@ export default function Post(){
                 />
             </OwlCarousel>
 
-
-            <Divider />
-            <CardContent sx={{mt: 0}}>
+            <CardContent sx={{mt: '-16px'}}>
                 <Typography gutterBottom variant="h6" component="div">
                     Photos
                 </Typography>
@@ -79,7 +77,6 @@ export default function Post(){
                     if you like.
                 </Typography>
             </CardContent>
-            <Divider />
             <CardActions>
                 <Button>Browse</Button>
             </CardActions>
