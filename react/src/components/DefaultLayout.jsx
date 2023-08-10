@@ -1,5 +1,7 @@
 import { Outlet, Navigate} from "react-router-dom";
 import { useStateContext } from "../context/ContextProvider";
+import NavigationBar from "./Navigation/Navigation";
+import { Container, Stack } from "@mui/material";
 
 export default function DefaultLayout(){
     const {user, token} = useStateContext();
@@ -10,8 +12,9 @@ export default function DefaultLayout(){
 
     return(
         <div>
-            <div>default</div>
+            <NavigationBar />
             <Outlet />
+            <br/>
         </div>
     )
 }

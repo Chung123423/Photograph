@@ -1,3 +1,15 @@
+#root{
+  background-color: #f5f5f5;
+}
+.owl-item {
+  height: 0;
+}    
+.owl-item.active {
+  height: auto;
+}
+.owl-dots{
+  margin-top: 2px;
+}
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

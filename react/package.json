@@ -14,8 +14,13 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.4",
+    "jquery": "^3.7.0",
+    "nuka-carousel": "^6.0.3",
+    "owl.carousel": "^2.3.4",
     "react": "^18.2.0",
+    "react-alice-carousel": "^2.7.1",
     "react-dom": "^18.2.0",
+    "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^6.14.2"
   },
   "devDependencies": {

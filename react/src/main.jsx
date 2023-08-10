@@ -5,6 +5,7 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import router from './router.jsx';
 import { ContextProvider } from './context/ContextProvider.jsx'
+import $ from 'jquery';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
