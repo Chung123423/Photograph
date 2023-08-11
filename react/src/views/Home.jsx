@@ -44,7 +44,7 @@ export default function Home(){
                     </Grid>
                 </Grid>
                 
-                {loadingPostSpinner ? <Box sx={{ display: 'flex', justifyContent: 'center', padding: 5}}><CircularProgress color="inherit" /></Box> : 'A'}
+                {loadingPostSpinner ? <Box sx={{ display: 'flex', justifyContent: 'center', padding: 5}}><CircularProgress color="inherit" /></Box> : ''}
             </Container>
         </div>
     )

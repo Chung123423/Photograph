@@ -5,6 +5,7 @@ import Login from './views/Login.jsx';
 import Home from './views/Home.jsx';
 import NotFound from "./views/NotFound.jsx";
 import Dashboard from "./views/Dashboard.jsx";
+import Photos from "./views/Photos.jsx";
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard />
+            },
+            {
+                path: '/photos',
+                element: <Photos />
             }
         ]
     },

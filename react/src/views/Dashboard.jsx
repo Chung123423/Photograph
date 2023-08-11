@@ -8,7 +8,8 @@ export default function Dashboard(){
     return(
         <Container sx={{maxWidth: {xs: 'xs', sm: 'sm', md: 'md'} }} maxWidth='xs'> 
             <Grid container spacing={2}>
-                <Grid item xs={12} md={4}>
+                
+                <Grid item xs={12} sm={6} md={4}>
                     <Card>
                         <CardContent>
                             <Avatar 
