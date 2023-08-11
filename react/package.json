@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.4",
+    "@mui/styles": "^5.14.4",
     "jquery": "^3.7.0",
     "nuka-carousel": "^6.0.3",
     "owl.carousel": "^2.3.4",

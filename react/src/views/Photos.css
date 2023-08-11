@@ -1,0 +1,9 @@
+.photo{
+    transition: all .2s;
+    cursor: pointer;
+    width: 100%;
+}
+
+.photo:hover{
+    opacity: 0.5;
+}

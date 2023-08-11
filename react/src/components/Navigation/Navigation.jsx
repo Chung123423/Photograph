@@ -64,13 +64,13 @@ export default function NavigationBar(){
 
                         <Box>
                             <Stack spacing={{ xs: 1}} direction="row" useFlexGap flexWrap="wrap">
-                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}}>
+                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} href="/home">
                                     <HomeIcon fontSize="small" />
                                 </IconButton>
                                 <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}}>
                                     <CloudUploadIcon fontSize="small" />
                                 </IconButton>
-                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}}>
+                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} href="/photos">
                                     <PhotoLibraryIcon fontSize="small" />
                                 </IconButton>
                                 <UsericonWithDropdownMenu />
