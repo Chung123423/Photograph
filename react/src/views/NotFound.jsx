@@ -1,5 +1,5 @@
 import { Button, Card, CardContent, Typography } from "@mui/material"
-
+import { Link } from "react-router-dom";
 
 export default function NotFound(){
 
@@ -18,7 +18,7 @@ export default function NotFound(){
                     </Typography>
                     <br />
                     <center>
-                        <Button variant="contained" href="/home">Back to home</Button>
+                        <Button variant="contained" href="/home" component={Link} to="/home">Back to home</Button>
                     </center>
                     
                 </CardContent>

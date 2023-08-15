@@ -21,6 +21,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import Stack from '@mui/material/Stack';
 import { Container } from '@mui/material';
+import { Link } from "react-router-dom";
 
 //dropdown menu
 import Paper from '@mui/material/Paper';
@@ -64,13 +65,13 @@ export default function NavigationBar(){
 
                         <Box>
                             <Stack spacing={{ xs: 1}} direction="row" useFlexGap flexWrap="wrap">
-                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} href="/home">
+                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} component={Link} to="/home">
                                     <HomeIcon fontSize="small" />
                                 </IconButton>
                                 <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}}>
                                     <CloudUploadIcon fontSize="small" />
                                 </IconButton>
-                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} href="/photos">
+                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} component={Link} to="/photos">
                                     <PhotoLibraryIcon fontSize="small" />
                                 </IconButton>
                                 <UsericonWithDropdownMenu />
