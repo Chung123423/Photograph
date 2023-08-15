@@ -72,9 +72,9 @@ export default function Photos(){
                 <Button variant="contained" size="small">
                   Select Photos
                 </Button>
-                <IconButton color='inherit'>
+                {/* <IconButton color='inherit'>
                   <ViewModuleIcon />
-                </IconButton>
+                </IconButton> */}
             </Stack>
 
             <ImageList cols={imageListResponse()} variant="masonry" rowHeight={'auto'}>

@@ -6,7 +6,7 @@ import Home from './views/Home.jsx';
 import NotFound from "./views/NotFound.jsx";
 import Dashboard from "./views/Dashboard.jsx";
 import Photos from "./views/Photos.jsx";
-
+import Album from "./views/Album.jsx";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: '/photos',
                 element: <Photos />
+            },
+            {
+                path: '/albums',
+                element: <Album />
             }
         ]
     },
