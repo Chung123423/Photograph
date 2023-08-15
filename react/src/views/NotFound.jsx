@@ -7,6 +7,7 @@ export default function NotFound(){
         <div style={{position: 'absolute', width: '100%',  height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <Card sx={{maxWidth: '400px'}}>
                 <CardContent>
+                    
                     <Typography variant="h3" sx={{textAlign: "center"}} gutterBottom>
                         404
                     </Typography>

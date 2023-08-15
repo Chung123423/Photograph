@@ -35,13 +35,24 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
 import CollectionsIcon from '@mui/icons-material/Collections';
 
+import UploadModal from '../UploadModal';
+
+
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
 
 export default function NavigationBar(){
-    
+
+    //upload modal
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     return (
         <Box sx={{ display: 'flex', marginBottom: '80px'}}>
+
+            <UploadModal open={open} onClose={handleClose} />
+
             <CssBaseline />
             <AppBar component="nav" sx={{boxShadow: 0}} color={'inherit'}>
                 <Container maxWidth="md">
@@ -68,7 +79,7 @@ export default function NavigationBar(){
                                 <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} component={Link} to="/home">
                                     <HomeIcon fontSize="small" />
                                 </IconButton>
-                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}}>
+                                <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} onClick={handleOpen}>
                                     <CloudUploadIcon fontSize="small" />
                                 </IconButton>
                                 <IconButton color="inherit"  sx={{border: 1, borderColor: '#e5eaf2', borderRadius: '16px'}} component={Link} to="/photos">

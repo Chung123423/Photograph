@@ -81,11 +81,12 @@ export default function Photos(){
                     {
                       photos.map((photo, index)=>{
                         return(
-                          <ImageListItem key={index}>
+                          <ImageListItem key={index} >
                             <img
                               src={photo}
                               className="photo"
                               onClick={()=>{handlePhotoModalOpen(photo)}}
+                              loading="lazy"
                             />
                           </ImageListItem>
                         )
@@ -96,5 +97,4 @@ export default function Photos(){
         </Container>
     )
 }
-
 
