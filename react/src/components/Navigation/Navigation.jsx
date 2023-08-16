@@ -51,7 +51,7 @@ export default function NavigationBar(){
     return (
         <Box sx={{ display: 'flex', marginBottom: '80px'}}>
 
-            <UploadModal open={open} onClose={handleClose} />
+            <UploadModal open={open} handleClose={handleClose} />
 
             <CssBaseline />
             <AppBar component="nav" sx={{boxShadow: 0}} color={'inherit'}>

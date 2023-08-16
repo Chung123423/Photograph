@@ -23,6 +23,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/photo', [PhotoController::class, 'get']);
     Route::post('/upload', [PhotoController::class, 'upload']);
     Route::post('/delete', [PhotoController::class, 'delete']);
+    Route::post('/photos', [PhotoController::class, 'photos']);
 
     //album controller
     Route::post('/list_albums', [AlbumController::class, 'list_albums']);

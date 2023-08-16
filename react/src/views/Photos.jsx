@@ -6,13 +6,16 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { useEffect, useState } from "react"
+import {Buffer} from 'buffer';
+import axiosClient from '../axios-client';
 import './Photos.css';
 
 export default function Photos(){
 
     const [modalOpen, setModalStatus] = useState(false);
     const [modalImageURL, setModalImageURL] = useState('');
-    const [selectedPhoto, setSelectedPhoto] = useState([])
+    // const [selectedPhoto, setSelectedPhoto] = useState([])
+    const [photos, setPhotos] = useState([])
 
     const handlePhotoModalOpen = (url) => { 
       setModalStatus(true) 
@@ -20,17 +23,13 @@ export default function Photos(){
     }
     const handlePhotoModalClose = () => { setModalStatus(false) }
 
-    const photoOnClickHandler = () => {
-
-    }
-
-    const photos = [
-      "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-      "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-      "https://storage.googleapis.com/pai-images/55726458e3fa43be94849035468d90a3.jpeg",
-      "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-      "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=248&fit=crop&auto=format"
-    ]
+    // const photos = [
+    //   "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
+    //   "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
+    //   "https://storage.googleapis.com/pai-images/55726458e3fa43be94849035468d90a3.jpeg",
+    //   "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    //   "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=248&fit=crop&auto=format"
+    // ]
 
     const modal_style = {
       display: 'flex',
@@ -61,6 +60,12 @@ export default function Photos(){
         return 4
     }
 
+    useEffect(() => {
+      axiosClient.post('photos').then((response) => {
+        setPhotos(response.data)
+      })
+    },[])
+    
     return(
         <Container sx={{maxWidth: {xs: 'xs', sm: 'sm', md: 'md'} }} maxWidth='xs'>
             
@@ -80,16 +85,7 @@ export default function Photos(){
             <ImageList cols={imageListResponse()} variant="masonry" rowHeight={'auto'}>
                     {
                       photos.map((photo, index)=>{
-                        return(
-                          <ImageListItem key={index} >
-                            <img
-                              src={photo}
-                              className="photo"
-                              onClick={()=>{handlePhotoModalOpen(photo)}}
-                              loading="lazy"
-                            />
-                          </ImageListItem>
-                        )
+                        return <Photo photo={photo} index={index} handlePhotoModalOpen={handlePhotoModalOpen}/>
                       })
                     }
             </ImageList>
@@ -98,3 +94,24 @@ export default function Photos(){
     )
 }
 
+function Photo(props){
+  const [imageData, setImageData] = useState('');
+
+  useEffect(() => {
+    axiosClient.get(`${import.meta.env.VITE_API_BASE_URL}/api/photo?id=${props.photo.id}`,{responseType: 'arraybuffer'}).then((response) => {
+      const basa64 = Buffer.from(response.data, 'binary').toString('base64')
+      setImageData(`data:image/jpeg;base64,${basa64}`)
+    })
+  }, [])
+
+  return(
+    <ImageListItem key={props.index} >
+      <img
+        src={imageData}
+        className="photo"
+        onClick={()=>{props.handlePhotoModalOpen(imageData)}}
+        loading="lazy"
+      />
+    </ImageListItem>
+  )
+}

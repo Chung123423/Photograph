@@ -8,9 +8,9 @@ import { ContextProvider } from './context/ContextProvider.jsx'
 import $ from 'jquery';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <ContextProvider>
       <RouterProvider router={router}/>
     </ContextProvider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )

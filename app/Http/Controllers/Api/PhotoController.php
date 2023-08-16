@@ -19,7 +19,7 @@ class PhotoController extends Controller
     public function upload(Request $request){
         $request->validate([
             'title' => 'required|string',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:10240',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:102400',
         ]);
         $user = $request->user();
 
@@ -81,6 +81,19 @@ class PhotoController extends Controller
             $photo->delete();
 
             return response()->json(['status' =>  true], 200);
+        }catch(Exception $ex){
+            return response()->json(['error' => 'Internal Server Error'], 500);
+        }
+    }
+
+    public function photos(Request $request){
+        try{
+            $user = $request->user();
+
+            $photos = Photo::where('user_id', $user->id)->get();
+
+            return response()->json($photos, 200);
+
         }catch(Exception $ex){
             return response()->json(['error' => 'Internal Server Error'], 500);
         }

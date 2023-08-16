@@ -13,18 +13,27 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import axiosClient from "../axios-client";
+import { useStateContext } from "../context/ContextProvider";
 
 const defaultTheme = createTheme();
 
 export default function Login(){
+    const {setUser, setToken} = useStateContext()
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-          email: data.get('email'),
-          password: data.get('password'),
-        });
+
+        axiosClient.post('/signin', {
+            email: data.get('email'),
+            password: data.get('password'),
+        }).then(({data}) => {
+            setUser(data.user)
+            setToken(data.token)
+        })
+
+
     };
 
 
@@ -34,7 +43,7 @@ export default function Login(){
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 8,
+                        paddingTop: 8,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
